@@ -4,7 +4,7 @@ import { Button, DatePicker } from "antd";
 
 const TestPage = () => {
   const { isLoading, data } = useQuery("jsonplaceholder", () =>
-    fetch("https://jsonplaceholder.typicode.com/posts").then((res) =>
+    fetch("https://jsonplaceholder.typicode.com/posts/1/comments").then((res) =>
       res.json()
     )
   );
@@ -18,7 +18,7 @@ const TestPage = () => {
       {isLoading && <h1>Loading...</h1>}
       {data?.map((el: any) => (
         <React.Fragment key={el.id}>
-          <span>{`TITLE: ${el.title}`}</span>
+          <span>{`EMAIL: ${el.email}`}</span>
           <p>{`BODY: ${el.body}`}</p>
         </React.Fragment>
       ))}
