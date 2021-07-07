@@ -4,13 +4,13 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import "./index.scss";
 import "antd/dist/antd.css";
 
-const App = () => {
+function App() {
   return (
     <>
       <Routing />
       <ReactQueryDevtools initialIsOpen={false} />
     </>
   );
-};
+}
 
-export default withProviders(App) as React.ComponentType;
+export default withProviders(App);
