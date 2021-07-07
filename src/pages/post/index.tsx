@@ -3,6 +3,7 @@ import { useQuery } from 'react-query';
 import { Button } from 'antd';
 import styled from 'styled-components';
 import Title from 'shared/ui/Title';
+import PostCard from 'entities/post/ui/PostCard';
 
 const ButtonWrap = styled.div`
   margin: 0 0 20px 0;
@@ -42,11 +43,8 @@ const PostPage = () => {
 
       {isLoading && <h1>Loading...</h1>}
       {!isLoading &&
-        data?.map((el: any) => (
-          <React.Fragment key={el.id}>
-            <span>{`EMAIL: ${el.email}`}</span>
-            <p>{`BODY: ${el.body}`}</p>
-          </React.Fragment>
+        data?.map((post: { id: number; email: string; body: string }) => (
+          <PostCard key={post.id} email={post.email} body={post.body} />
         ))}
       <span>{`Страница: ${currentPage}`}</span>
     </>
