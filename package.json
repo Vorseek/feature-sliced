@@ -50,6 +50,11 @@
     "@types/compose-function": "0.0.30",
     "@types/react-router": "^5.1.15",
     "@types/react-router-dom": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
+    "eslint": "^7.30.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "react-query-devtools": "^2.6.3"
   }
 }

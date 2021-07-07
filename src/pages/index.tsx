@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 
 const TestPage = lazy(() => import("./test"));
 
-export const Routing = () => {
+export const Routing: React.FC = () => {
   return (
     <Switch>
       <Route exact path="/" component={TestPage} />
