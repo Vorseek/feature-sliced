@@ -1,34 +1,47 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import { Button, DatePicker } from 'antd';
+import { Button } from 'antd';
+import styled from 'styled-components';
+
+const ButtonWrap = styled.div`
+  margin: 0 0 20px 0;
+  display: grid;
+  grid-template-columns: 100px 100px;
+  grid-gap: 20px;
+`;
+
+const TitlePage = styled.h1`
+  color: red;
+  margin-bottom: 40px;
+`;
 
 const TestPage = () => {
-  const [state, setstate] = React.useState(1);
+  const [currentPage, setCurrentPage] = React.useState(1);
 
-  const { isLoading, data } = useQuery(['jsonplaceholder', state], () =>
-    fetch(`https://jsonplaceholder.typicode.com/posts/${state}/comments`).then((res) => res.json())
+  const { isLoading, data } = useQuery(['jsonplaceholder', currentPage], () =>
+    fetch(`https://jsonplaceholder.typicode.com/posts/${currentPage}/comments`).then((res) => res.json())
   );
 
   return (
     <>
-      <button
-        type="button"
-        onClick={() => {
-          setstate((prev) => prev + 1);
-        }}>
-        +
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          setstate((prev) => prev - 1);
-        }}>
-        -
-      </button>
-      <div>
-        <Button type="primary">PRESS ME</Button>
-        <DatePicker placeholder="select date" />
-      </div>
+      <TitlePage>Страница с постами, тест react query</TitlePage>
+      <ButtonWrap>
+        <Button
+          type="ghost"
+          onClick={() => {
+            setCurrentPage((prev) => prev - 1 || 1);
+          }}>
+          -
+        </Button>
+        <Button
+          type="primary"
+          onClick={() => {
+            setCurrentPage((prev) => prev + 1 || 1);
+          }}>
+          +
+        </Button>
+      </ButtonWrap>
+
       {isLoading && <h1>Loading...</h1>}
       {!isLoading &&
         data?.map((el: any) => (
@@ -37,6 +50,7 @@ const TestPage = () => {
             <p>{`BODY: ${el.body}`}</p>
           </React.Fragment>
         ))}
+      <span>{`Страница: ${currentPage}`}</span>
     </>
   );
 };
