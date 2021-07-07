@@ -1,11 +1,11 @@
 import { lazy } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-const TestPage = lazy(() => import('./test'));
+const PostPage = lazy(() => import('./post'));
 
 const Routing = () => (
     <Switch>
-      <Route exact path="/" component={TestPage} />
+      <Route exact path="/" component={PostPage} />
       <Redirect to="/" />
     </Switch>
   );
