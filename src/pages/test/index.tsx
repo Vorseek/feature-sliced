@@ -11,6 +11,7 @@ const TestPage = () => {
 
   return (
     <>
+      <h1>{`Страница: ${state}`}</h1>
       <button
         type="button"
         onClick={() => {
