@@ -6,10 +6,10 @@ import 'antd/dist/antd.css';
 
 function App() {
   return (
-    <>
+    <div className='container'>
       <Routing />
       <ReactQueryDevtools initialIsOpen={false} />
-    </>
+    </div>
   );
 }
 
