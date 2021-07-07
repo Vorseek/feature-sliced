@@ -1,6 +1,12 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import { Button, DatePicker } from 'antd';
+import styled from 'styled-components';
+
+const Title = styled.h1`
+  color: green;
+  padding: 24px;
+`;
 
 const TestPage = () => {
   const [state, setstate] = React.useState(1);
@@ -11,7 +17,7 @@ const TestPage = () => {
 
   return (
     <>
-      <h1>{`Страница: ${state}`}</h1>
+      <Title>{`Страница: ${state}`}</Title>
       <button
         type="button"
         onClick={() => {
