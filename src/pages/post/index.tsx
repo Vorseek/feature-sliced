@@ -2,6 +2,8 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import { Button } from 'antd';
 import styled from 'styled-components';
+import Title from 'shared/ui/Title';
+import PostCard from 'entities/post/ui/PostCard';
 
 const ButtonWrap = styled.div`
   margin: 0 0 20px 0;
@@ -10,21 +12,18 @@ const ButtonWrap = styled.div`
   grid-gap: 20px;
 `;
 
-const TitlePage = styled.h1`
-  color: red;
-  margin-bottom: 40px;
-`;
-
-const TestPage = () => {
+const PostPage = () => {
   const [currentPage, setCurrentPage] = React.useState(1);
 
   const { isLoading, data } = useQuery(['jsonplaceholder', currentPage], () =>
-    fetch(`https://jsonplaceholder.typicode.com/posts/${currentPage}/comments`).then((res) => res.json())
+    fetch(`https://jsonplaceholder.typicode.com/posts/${currentPage}/comments`).then((res) =>
+      res.json()
+    )
   );
 
   return (
     <>
-      <TitlePage>Страница с постами, тест react query</TitlePage>
+      <Title title="Страница с постами, тест react query" />
       <ButtonWrap>
         <Button
           type="ghost"
@@ -44,15 +43,12 @@ const TestPage = () => {
 
       {isLoading && <h1>Loading...</h1>}
       {!isLoading &&
-        data?.map((el: any) => (
-          <React.Fragment key={el.id}>
-            <span>{`EMAIL: ${el.email}`}</span>
-            <p>{`BODY: ${el.body}`}</p>
-          </React.Fragment>
+        data?.map((post: { id: number; email: string; body: string }) => (
+          <PostCard key={post.id} email={post.email} body={post.body} />
         ))}
       <span>{`Страница: ${currentPage}`}</span>
     </>
   );
 };
 
-export default TestPage;
+export default PostPage;
