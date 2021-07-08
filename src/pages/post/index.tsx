@@ -4,6 +4,7 @@ import { Button } from 'antd';
 import styled from 'styled-components';
 import Title from 'shared/ui/Title';
 import PostCard from 'entities/post/ui/PostCard';
+import { Link } from 'react-router-dom';
 
 const ButtonWrap = styled.div`
   margin: 0 0 20px 0;
@@ -11,7 +12,7 @@ const ButtonWrap = styled.div`
   grid-template-columns: 100px 100px;
   grid-gap: 20px;
 `;
-
+// TODO: Убрать логику из page
 const PostPage = () => {
   const [currentPage, setCurrentPage] = React.useState(1);
 
@@ -24,6 +25,7 @@ const PostPage = () => {
   return (
     <>
       <Title title="Страница с постами, тест react query" />
+      <Link to="/charter">К персонажам</Link>
       <ButtonWrap>
         <Button
           type="ghost"
