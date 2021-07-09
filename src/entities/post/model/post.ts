@@ -1,4 +1,4 @@
-import { createStore,/*  createEffect,  */createEvent } from 'effector';
+import { createStore, createEvent } from 'effector';
 
 interface InputStore {
   [email: string]: string;

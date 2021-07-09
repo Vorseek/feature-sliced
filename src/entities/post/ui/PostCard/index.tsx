@@ -1,6 +1,6 @@
 import { useStore } from 'effector-react';
 import React from 'react';
-import { $input, getInputText } from '../../model';
+import { $input, getInputText } from 'entities/post/model';
 
 interface P {
   email: string;
