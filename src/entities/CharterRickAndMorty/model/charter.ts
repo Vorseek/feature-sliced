@@ -1,4 +1,5 @@
-import { createEffect, createStore } from "effector";
+import { createEffect, createStore } from 'effector';
+import { getRickAndMortyCharter } from 'shared/api/services/RickAndMorty';
 
 interface Charter {
   info: any;
@@ -6,9 +7,8 @@ interface Charter {
 }
 
 export const fetchRickAndMortyCharter = createEffect(async () => {
-  const url = 'https://rickandmortyapi.com/api/character';
-  const req = await fetch(url);
-  return req.json();
+  const req = await getRickAndMortyCharter();
+  return req.data;
 });
 
 export const $rickCharter = createStore<Charter | null>(null).on(
