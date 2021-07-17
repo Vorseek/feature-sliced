@@ -1,0 +1,12 @@
+query GetCharterRick = {
+  characters(page: 1, filter: { name: "rick" }) {
+    info {
+      count
+    }
+    results {
+      id
+      name
+      status
+    }
+  }
+}
