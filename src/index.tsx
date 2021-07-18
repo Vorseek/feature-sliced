@@ -10,6 +10,7 @@ const queryClient = new QueryClient();
 const client = new ApolloClient({
   uri: 'https://rickandmortyapi.com/graphql',
   cache: new InMemoryCache(),
+  connectToDevTools: true,
 });
 
 ReactDOM.render(
