@@ -5,6 +5,7 @@ import './index.scss';
 import 'antd/dist/antd.css';
 
 function App() {
+  const handler = () => {};
   return (
     <div className='container'>
       <Routing />

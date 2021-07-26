@@ -12,7 +12,7 @@ const Graphql = () => {
     <div>
       <h1>GraphQl</h1>
       {data?.characters?.results?.map((result) => (<div key={result?.id}>{result?.name}</div>))}
-      <button type="button" onClick={() => refetch()}>
+      <button type='button' onClick={() => refetch()}>
         ReFetch
       </button>
     </div>
