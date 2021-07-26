@@ -21,7 +21,7 @@ ReactDOM.render(
       </React.StrictMode>
     </QueryClientProvider>
   </ApolloProvider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 reportWebVitals();
