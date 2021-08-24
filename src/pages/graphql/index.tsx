@@ -6,7 +6,7 @@ const EXCHANGE_RATES = loader('./GetCharterRick.graphql');
 
 const Graphql = () => {
   const { data, loading, refetch } = useQuery<GetCharterRick>(EXCHANGE_RATES);
-  console.log(data?.characters?.results);
+
   if (loading) return <h1>{'>>>>Loading<<<<'}</h1>;
   return (
     <div>
