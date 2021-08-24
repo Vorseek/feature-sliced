@@ -1,6 +1,5 @@
 import { Button } from 'antd';
 import { fetchRickAndMortyCharter } from 'entities/CharterRickAndMorty/model';
-import React from 'react';
 
 const ButtonCharter = () => (
     <Button

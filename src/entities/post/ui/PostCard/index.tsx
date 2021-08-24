@@ -15,7 +15,7 @@ const PostCard: React.FC<P> = ({ email, body }) => {
       <span>{`EMAIL: ${email}`}</span>
       <p>{`BODY: ${body}`}</p>
       <input
-        type="text"
+        type='text'
         value={input?.[email]}
         onChange={(e) => getInputText({ email, msg: e.target.value })}
       />
